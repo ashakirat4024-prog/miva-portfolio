@@ -4,4 +4,4 @@ h1{color:#2c3e50;border-bottom:3px solid #3498db;padding-bottom:10px}
 h2{color:#555}
 form input,form textarea{width:80%;padding:10px;margin:5px 0;border:1px solid #ccc;border-radius:5px}
 button{background:#3498db;color:white;padding:10px 20px;border:none;border-radius:5px;cursor:pointer}
-img{margin:10px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.2)}
+img{width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:top center;margin:10px auto;display:block;border:3px solid #2c3e50;box-shadow:0 4px 8px rgba(0,0,0,0.2)}
