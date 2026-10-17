@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Planner | Atanda Shakirat</title>
+<link rel="stylesheet" href="style.css">
+<style>
+#planner-container{max-width:600px;background:white;padding:20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);margin:20px auto}
+#taskInput{width:70%;padding:10px;border:1px solid #ccc;border-radius:5px}
+#taskList{list-style:none;padding:0}
+#taskList li{background:#f4f4f9;margin:8px 0;padding:10px;border-radius:5px;display:flex;justify-content:space-between;align-items:center}
+.completed{text-decoration:line-through;color:gray}
+.task-btn{margin-left:5px;padding:5px 10px;border:none;border-radius:3px;cursor:pointer}
+.done-btn{background:#2ecc71;color:white}
+.del-btn{background:#e74c3c;color:white}
+</style>
+</head>
+<body>
+
+<marquee>Academic Planner - Atanda Shakirat - Miva Open University</marquee>
+
+<nav>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="biography.html">Biography</a> |
+<a href="skills.html">Skills</a> |
+<a href="video.html">Video</a> |
+<a href="voice.html">Voice</a> |
+<a href="contact.html">Contact</a> |
+<a href="academic-planner.html">Planner</a>
+</nav>
+
+<h1>4. Academic Planner Page</h1>
+<p>Interactive planner - Add, Mark as completed, Delete tasks (JavaScript)</p>
+
+<div id="planner-container">
+<input type="text" id="taskInput" placeholder="Enter task e.g., Study COS106">
+<button onclick="addTask()" style="background:#3498db;color:white;padding:10px 15px;border:none;border-radius:5px;">Add Task</button>
+<ul id="taskList"></ul>
+</div>
+
+<script>
+function addTask(){
+let input = document.getElementById("taskInput");
+let taskText = input.value.trim();
+if(taskText === ""){ alert("Please enter a task!"); return; }
+
+let li = document.createElement("li");
+li.innerHTML = `<span onclick="toggleTask(this)">${taskText}</span> <div><button class="task-btn done-btn" onclick="toggleTask(this.parentNode.previousElementSibling)">Done</button> <button class="task-btn del-btn" onclick="deleteTask(this)">Delete</button></div>`;
+
+document.getElementById("taskList").appendChild(li);
+input.value = "";
+}
+
+function toggleTask(span){
+span.classList.toggle("completed");
+}
+
+function deleteTask(btn){
+btn.parentNode.parentNode.remove();
+}
+</script>
+
+</body>
+</html>
